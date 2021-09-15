@@ -1,0 +1,8 @@
+**~
+**.swp
+**.ropeproject
+**.pyc
+**.uniteignore
+.mypy_cache
+.cache
+compile_commands.json
