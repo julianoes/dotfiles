@@ -9,3 +9,5 @@ sudo add-apt-repository --yes ppa:neovim-ppa/unstable
 sudo apt install neovim
 
 sudo apt install git zsh fzf
+
+sudo apt install i3 i3blocks
