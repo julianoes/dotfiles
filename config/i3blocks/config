@@ -26,14 +26,9 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
-
-[pomodoro]
-command=python ~/src/i3-gnome-pomodoro/pomodoro-client.py status
-interval=1
-color=#d9534f
 
 # Volume indicator
 #
@@ -41,7 +36,7 @@ color=#d9534f
 # The second parameter overrides the mixer selection
 # See the script for details.
 [volume]
-label=♪ 
+label=VOL
 instance=Master
 #instance=PCM
 interval=1
@@ -57,28 +52,28 @@ signal=10
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-[disk]
-command=~/Scripts/disk-percentage.sh
-label=💾 
-interval=30
+#[disk]
+#command=~/Scripts/disk-percentage.sh
+#label=💾 
+#interval=30
 
 # CPU usage
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[cpu_usage]
-command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME -d 0
-label=💻 
-interval=10
-min_width=💻100%
+#[cpu_usage]
+#command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME -d 0
+#label=💻 
+#interval=10
+#min_width=💻100%
 
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-[ram]
-command=~/Scripts/cpu-percentage.sh
-label=📊 
-interval=30
+#[ram]
+#command=~/Scripts/cpu-percentage.sh
+#label=📊 
+#interval=30
 
 
 # [battery]
@@ -86,13 +81,19 @@ interval=30
 # label=🖱️ 
 # interval=30
 
-# Network interface monitoring
-#
-# If the instance is not specified, use the interface used for default route.
-# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+
+[battery]
+label=BAT
+interval=30
+
 [iface]
-label=🖧 
+label=LAN
 instance=enp0s31f6
+interval=10
+
+[iface]
+label=WLAN
+instance=wlp61s0
 interval=10
 
 #[bandwidth]
@@ -106,7 +107,7 @@ interval=10
 # Date Time
 #
 [time]
-label=🕒 
-command=date '+%Y-%m-%d %H:%M'
+label=
+command=date '+%Z %Y-%m-%d %H:%M'
 interval=1
 separator=true

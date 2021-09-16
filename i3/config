@@ -172,11 +172,11 @@ set $transparent #00000000
 # finds out, if available)
 bar {
   status_command i3blocks
-  i3bar_command i3bar -t
+  #i3bar_command i3bar -t
   #status_command ~/.i3/i3status-pomodoro.sh
   #status_command i3status -c ~/.i3/i3status.conf
         # mode hide
-  tray_output primary
+  #tray_output primary
   tray_padding 0
   position bottom
   separator_symbol "|"
@@ -212,15 +212,16 @@ assign [class="Skype"] 1:comm
 assign [class="Qgroundcontrol"] 6:qgc
 #assign [class="osgViewer"] 4:groundcontrol
 
-exec compton
+#exec compton
 
 # don't turn off monitor after a while
 #exec xset dpms force off
 
 # Set up monitors correctly
-exec ~/Scripts/monitor_layout.sh internal
+#exec ~/Scripts/monitor_layout.sh internal
 
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
+exec --no-startup-id dbus-launch nm-applet
 
 # autostart
 exec insync start
