@@ -10,4 +10,5 @@ sudo apt install neovim
 
 sudo apt install git zsh fzf
 
-sudo apt install i3 i3blocks
+sudo add-apt-repository ppa:regolith-linux/release
+sudo apt install i3-gaps i3blocks
