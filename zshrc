@@ -17,3 +17,5 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
 source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PATH="$HOME/.cargo/bin:$PATH"
