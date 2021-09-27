@@ -1,3 +1,10 @@
+- shell: 
+  - mkdir -p ~/.local/share/nvim/site/autoload/
+  - scripts/git-config.sh
+  - scripts/ubuntu-apt-install.sh
+  - sudo chsh -s $(which zsh)
+  - dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
+
 - link:
    ~/.zshrc: zshrc
    ~/.ohmyzsh: ohmyzsh
@@ -6,9 +13,6 @@
    ~/.i3: i3
    ~/.config/i3blocks: config/i3blocks
    ~/.config/rofi: config/rofi
+   ~/.config/nvim: config/nvim
+   ~/.local/share/nvim/site/autoload/plug.vim: vim-plug/plug.vim
 
-- shell: 
-  - scripts/git-config.sh
-  - scripts/ubuntu-apt-install.sh
-  - sudo chsh -s $(which zsh)
-  - dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
