@@ -1,4 +1,4 @@
-call plug#begin('plugged')
+call plug#begin(stdpath('data') . 'plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
@@ -11,6 +11,7 @@ Plug 'neovim/nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'robert-oleynik/clangd-nvim'
+Plug 'neoclide/coc.nvim'
 
 " For telescope
 Plug 'nvim-lua/popup.nvim'
@@ -46,3 +47,15 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-h> <c-w>h
+
+" coc.nvim
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)

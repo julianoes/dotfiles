@@ -15,9 +15,10 @@ sudo apt install i3-gaps i3blocks
 
 sudo apt install gimp
 sudo apt install libncurses5
-sudo apt install python3-is-python
+sudo apt install python-is-python3
 sudo apt install pavucontrol
 sudo apt install pavucontrol
-sudo apt install ripgrep
+sudo apt install ripgrep fd-find
 sudo apt install tree
 sudo apt install meld
+sudo apt install clangd
