@@ -14,3 +14,10 @@ sudo add-apt-repository ppa:regolith-linux/release
 sudo apt install i3-gaps i3blocks
 
 sudo apt install gimp
+sudo apt install libncurses5
+sudo apt install python3-is-python
+sudo apt install pavucontrol
+sudo apt install pavucontrol
+sudo apt install ripgrep
+sudo apt install tree
+sudo apt install meld
