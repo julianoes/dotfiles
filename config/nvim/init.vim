@@ -36,7 +36,7 @@ endif
 set nofoldenable
 
 " Find files using Telescope command-line sugar.
-nnoremap <c-f> <cmd>Telescope find_files<cr>
+nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <c-g> <cmd>Telescope live_grep<cr>
 "nnoremap <leader>fb <cmd>Telescope buffers<cr>
 "nnoremap <leader>fh <cmd>Telescope help_tags<cr>
