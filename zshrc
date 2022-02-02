@@ -14,6 +14,8 @@ alias gdtc='git difftool -d --cached'
 alias gsuir="git submodule update --init --recursive"
 alias gssr="git submodule sync --recursive"
 
+alias fd="fdfind"
+
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
