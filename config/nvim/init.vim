@@ -35,6 +35,14 @@ endif
 " don't fold
 set nofoldenable
 
+" show line number
+set nu
+
+" use default of 4 spaces, no tab
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 " Find files using Telescope command-line sugar.
 nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <c-g> <cmd>Telescope live_grep<cr>
