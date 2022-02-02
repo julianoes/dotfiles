@@ -248,13 +248,13 @@ bindsym $mod+t exec $control dynamic go
 bindsym $mod+Shift+t exec $control dynamic move
 
 # use Fn+F6 to Fn+F8 for volume control
-bind 121 exec pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle
-bind 122 exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -2%
-bind 123 exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +2%
+#bind 121 exec pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle
+#bind 122 exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -2%
+#bind 123 exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +2%
 # and Shift+F6 to Shift+F8
-bind Shift+72 exec pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle
-bind Shift+73 exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -2%
-bind Shift+74 exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +2%
+#bind Shift+72 exec pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle
+#bind Shift+73 exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -2%
+#bind Shift+74 exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +2%
 
 # use Shift+F4 to use internal display only
 bind Shift+70 exec ~/Scripts/monitor_layout.sh internal
@@ -263,11 +263,11 @@ bind Shift+70 exec ~/Scripts/monitor_layout.sh internal
 bind Shift+71 exec ~/Scripts/monitor_layout.sh external
 
 # use Fn F2 and F3 for brightness
-bind 232 exec xbacklight -dec 5
-bind 233 exec xbacklight -inc 5
+#bind 232 exec xbacklight -dec 5
+#bind 233 exec xbacklight -inc 5
 # and Shift+F2 and Shift+F3 as well
-bind Shift+68 exec xbacklight -dec 5
-bind Shift+69 exec xbacklight -inc 5
+#bind Shift+68 exec xbacklight -dec 5
+#bind Shift+69 exec xbacklight -inc 5
 
 # keybindings for some applications
 bindsym $mod+Control+c exec firefox
