@@ -5,6 +5,7 @@ source $ZSH/oh-my-zsh.sh
 
 export TERM=xterm-256color
 export GIT_SUBMODULES_ARE_EVIL=1 # For PX4
+export PX4_NO_FOLLOW_MODE=1
 export EDITOR=nvim
 
 alias gdc='git diff --cached'
