@@ -311,7 +311,6 @@ client.focused_inactive $black      $black      $darkwhite  $darkblack  $darkbla
 client.urgent           $darkred    $darkred    $black      $darkred    $darkred
 client.background $black
 
-gaps inner 10
+gaps inner 0
 gaps outer 0
-smart_gaps on
 
