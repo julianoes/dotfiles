@@ -24,3 +24,5 @@ git config --global push.default simple
 
 # Always use git access instead of https for GitHub
 git config --global url."git@github.com:".insteadof "https://github.com/"
+
+git config --global init.defaultBranch main
