@@ -27,6 +27,7 @@ source /usr/share/doc/fzf/examples/completion.zsh
 source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 
