@@ -11,7 +11,7 @@ Plug 'neovim/nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'robert-oleynik/clangd-nvim'
-Plug 'neoclide/coc.nvim'
+"Plug 'neoclide/coc.nvim'
 
 " For telescope
 Plug 'nvim-lua/popup.nvim'
