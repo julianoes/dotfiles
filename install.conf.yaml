@@ -8,6 +8,7 @@
    ~/.config/rofi: config/rofi
    ~/.config/nvim: config/nvim
    ~/.local/share/nvim/site/autoload/plug.vim: vim-plug/plug.vim
+   ~/.local/bin/untilfail.sh: local/bin/untilfail.sh
 
 - shell: 
   - mkdir -p ~/.local/share/nvim/site/autoload/
