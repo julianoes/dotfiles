@@ -15,6 +15,11 @@ alias gsuir="git submodule update --init --recursive"
 alias gssr="git submodule sync --recursive"
 
 alias fd="fdfind"
+alias fdi="fdfind --no-ignore"
+
+alias rgi="rg --no-ignore"
+
+alias vim="nvim"
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
