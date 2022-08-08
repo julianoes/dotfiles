@@ -180,8 +180,8 @@ bar {
   tray_padding 0
   position bottom
   separator_symbol "|"
-  height 25
-  font pango:Inconsolata Medium 11
+  #height 25
+  font pango:Inconsolata Medium 14
   colors {
     statusline         $white
     background         $transparent
@@ -201,7 +201,7 @@ bar {
 # hide_edge_borders <none|vertical|horizontal|both>
 hide_edge_borders both
 #for_window [class=".*"] border pixel 0
-smart_borders on
+#:smart_borders on
 
 # press same workaspace number again to switch back to last workspace
 workspace_auto_back_and_forth yes
@@ -221,10 +221,10 @@ assign [class="Qgroundcontrol"] 6:qgc
 #exec ~/Scripts/monitor_layout.sh internal
 
 #exec --no-startup-id nm-applet
-exec --no-startup-id dbus-launch nm-applet
+#exec --no-startup-id dbus-launch nm-applet
 
 # autostart
-exec insync start
+#exec insync start
 #exec dropbox
 #exec skype %U
 #exec /usr/bin/chromium --no-startup-window
@@ -310,7 +310,3 @@ client.unfocused        $black      $black      $darkwhite  $darkblack  $darkbla
 client.focused_inactive $black      $black      $darkwhite  $darkblack  $darkblack
 client.urgent           $darkred    $darkred    $black      $darkred    $darkred
 client.background $black
-
-gaps inner 0
-gaps outer 0
-
