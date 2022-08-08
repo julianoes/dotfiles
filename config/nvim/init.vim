@@ -18,6 +18,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
 call plug#end()
 
 " Map leader to ,
@@ -67,3 +69,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" File specific formatting
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal ts=4 sw=4 expandtab colorcolumn=80
+autocmd BufRead,BufNewFile,BufEnter *.yaml setlocal ts=2 sw=2 expandtab colorcolumn=80
+autocmd BufRead,BufNewFile,BufEnter *.yml setlocal ts=2 sw=2 expandtab colorcolumn=80
