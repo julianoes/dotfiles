@@ -28,12 +28,18 @@ sudo apt install -y tree
 sudo apt install -y meld
 sudo apt install -y clangd
 
+sudo apt install -y libboost-dev libboost-system1.74-dev libboost-thread1.74-dev libboost-filesystem1.74-dev gazebo libgazebo-dev libopencv-dev
+
 sudo apt install curl
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update
 sudo apt install -y yarn
 
-sudo apt install -y build-essential cmake gdb systemd-coredumpctl
+if uname -a | grep Debian
+then
+    systemd-coredumpctl
+fi
+sudo apt install -y build-essential cmake gdb
 sudo apt install -y feh
 sudo apt install -y dtrx
