@@ -230,7 +230,7 @@ assign [class="Qgroundcontrol"] 6:qgc
 #exec /usr/bin/chromium --no-startup-window
 #exec ssh-agent
 #exec ssh-add
-exec redshift-gtk -l 47.376888:-8.541694
+exec redshift-gtk -l -36.85:174.76
 
 # moving workspaces
 bindsym $mod+x move workspace to output right
