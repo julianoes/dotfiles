@@ -108,6 +108,6 @@ interval=10
 #
 [time]
 label=
-command=date '+%Z %Y-%m-%d %H:%M'
+command=date '+%Z %Y-%m-%d %H:%M:%S'
 interval=1
 separator=true
