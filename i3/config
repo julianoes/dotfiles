@@ -11,7 +11,7 @@
 
 set $mod Mod4
 
-font pango:Inconsolata Medium 9
+font pango:Inconsolata Medium 12
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -181,7 +181,7 @@ bar {
   position bottom
   separator_symbol "|"
   #height 25
-  font pango:Inconsolata Medium 14
+  font pango:Inconsolata Medium 12
   colors {
     statusline         $white
     background         $transparent
