@@ -82,9 +82,9 @@ signal=10
 # interval=30
 
 
-[battery]
-label=BAT
-interval=30
+#[battery]
+#label=BAT
+#interval=30
 
 [iface]
 label=LAN
