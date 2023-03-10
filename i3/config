@@ -273,7 +273,7 @@ bind Shift+71 exec ~/Scripts/monitor_layout.sh external
 bindsym $mod+Control+c exec firefox
 bindsym $mod+Control+t exec gnome-terminal
 bindsym $mod+Control+g exec qgroundcontrol
-bindsym $mod+Control+n exec nautilus
+bindsym $mod+Control+n exec nemo
 bindsym $mod+Control+v exec gvim
 
 # pomodoro disable comm workspace
