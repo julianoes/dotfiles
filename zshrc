@@ -8,6 +8,11 @@ export GIT_SUBMODULES_ARE_EVIL=1 # For PX4
 export PX4_NO_FOLLOW_MODE=1
 export EDITOR=nvim
 
+gpg-connect-agent updatestartuptty /bye > /dev/null
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
 alias gdc='git diff --cached'
 alias gdt='git difftool -d'
 alias gdtc='git difftool -d --cached'
