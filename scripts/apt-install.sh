@@ -5,7 +5,7 @@ set -e
 sudo apt update
 sudo apt dist-upgrade -y
 
-sudo apt install -y
+sudo apt install -y \
     neovim \
     xclip \
     git \
@@ -20,4 +20,5 @@ sudo apt install -y
     cmake \
     clangd \
     curl \
-    dtrx
+    dtrx \
+    colordiff

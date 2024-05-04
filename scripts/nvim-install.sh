@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
+
 set -e
 
-vim +PlugInstall +qall
-cd ~/.local/share/nvimplugged/coc.nvim
-yarn install
-yarn build
-
-vim +CocInstall coc-clangd +qall
-
+sudo curl -L -o /opt/nvim.appimage https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+sudo chmod +x /opt/nvim.appimage
+sudo ln -s -f /opt/nvim.appimage /usr/local/bin/nvim
