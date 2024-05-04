@@ -13,7 +13,13 @@
 
 - shell: 
   - mkdir -p ~/.local/share/nvim/site/autoload/
-  - scripts/apt-install.sh
-  - scripts/nvim-install.sh
+  - command: scripts/apt-install.sh
+    quiet: false
+    stdout: true
+    stderr: true
+  - command: scripts/nvim-install.sh
+    quiet: false
+    stdout: true
+    stderr: true
   - sudo chsh -s $(which zsh)
   - dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
