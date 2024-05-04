@@ -1,5 +1,6 @@
 - link:
    ~/.zshrc: zshrc
+   ~/.profile: profile
    ~/.ohmyzsh: ohmyzsh
    ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
    ~/.global_gitignore: global_gitignore
