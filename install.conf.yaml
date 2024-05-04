@@ -4,6 +4,7 @@
    ~/.ohmyzsh: ohmyzsh
    ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
    ~/.global_gitignore: global_gitignore
+   ~/.gitconfig: gitconfig
    ~/.i3: i3
    ~/.config/i3blocks: config/i3blocks
    ~/.config/rofi: config/rofi
@@ -12,7 +13,6 @@
 
 - shell: 
   - mkdir -p ~/.local/share/nvim/site/autoload/
-  - scripts/git-config.sh
   - scripts/apt-install.sh
   - scripts/nvim-install.sh
   - sudo chsh -s $(which zsh)
