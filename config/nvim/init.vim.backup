@@ -70,6 +70,11 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Folder specific formatting
+autocmd BufRead,BufNewFile,BufEnter ~/src/upstream/PX4-Autopilot/* setlocal ts=8 sw=8 noexpandtab colorcolumn=120
+autocmd BufRead,BufNewFile,BufEnter ~/src/corvus/px4_firmware/* setlocal ts=8 sw=8 noexpandtab colorcolumn=120
+autocmd BufRead,BufNewFile,BufEnter ~/src/wingcopter/px4_firmware/* setlocal ts=8 sw=8 noexpandtab colorcolumn=120
+
 " File specific formatting
 autocmd BufRead,BufNewFile,BufEnter *.py setlocal ts=4 sw=4 expandtab colorcolumn=80
 autocmd BufRead,BufNewFile,BufEnter *.yaml setlocal ts=2 sw=2 expandtab colorcolumn=80
