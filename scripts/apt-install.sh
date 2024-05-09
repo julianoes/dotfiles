@@ -3,7 +3,9 @@
 set -e
 
 sudo apt update
-sudo apt dist-upgrade -y
+sudo apt upgrade -y
+
+sudo apt purge -y pcscd
 
 sudo apt install -y \
     neovim \
