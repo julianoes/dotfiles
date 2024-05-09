@@ -1,6 +1,7 @@
 [user]
 	name = Julian Oes
 	email = julian@oes.ch
+	signingkey = 0xF0ED380FEA56DE41
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lgs = "log --graph --pretty=format:'%Cred%h%Creset;-%C(yellow)%d%Creset;%s;%Cgreen(%cr);%C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -11,25 +12,6 @@
 	status = auto
 [difftool]
 	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
-	prompt = false
 [diff]
 	tool = meld
 [core]
@@ -37,13 +19,7 @@
 	editor = nvim
 [push]
 	default = simple
-[url "git@github.com:julianoes"]
-	insteadof = https://github.com/julianoes
-[url "git@github.com:PX4"]
-	insteadof = https://github.com/PX4
-[url "git@github.com:mavlink"]
-	insteadof = https://github.com/mavlink
 [init]
 	defaultBranch = main
-[safe]
-	directory = foo
+[commit]
+	gpgsign = true
