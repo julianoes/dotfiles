@@ -21,4 +21,5 @@ sudo apt install -y \
     clangd \
     curl \
     dtrx \
-    colordiff
+    colordiff \
+    pinentry-gnome3

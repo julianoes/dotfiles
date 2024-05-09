@@ -32,9 +32,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 
 # Use Yubikey GPG for SSH
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-gpg-connect-agent updatestartuptty /bye > /dev/null
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
