@@ -22,5 +22,9 @@
     quiet: false
     stdout: true
     stderr: true
+  - command: install-scripts/fnm-install.sh
+    quiet: false
+    stdout: true
+    stderr: true
   - sudo chsh -s $(which zsh)
   - dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
