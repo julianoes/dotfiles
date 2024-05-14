@@ -13,6 +13,7 @@ sudo apt install -y \
     git \
     zsh \
     fzf \
+    btop \
     htop \
     ripgrep \
     fd-find \
@@ -20,6 +21,7 @@ sudo apt install -y \
     meld \
     build-essential \
     cmake \
+    gdb \
     clangd \
     curl \
     dtrx \
