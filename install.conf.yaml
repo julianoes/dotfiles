@@ -14,11 +14,11 @@
 
 - shell: 
   - mkdir -p ~/.local/share/nvim/site/autoload/
-  - command: scripts/apt-install.sh
+  - command: install-scripts/apt-install.sh
     quiet: false
     stdout: true
     stderr: true
-  - command: scripts/nvim-install.sh
+  - command: install-scripts/nvim-install.sh
     quiet: false
     stdout: true
     stderr: true
