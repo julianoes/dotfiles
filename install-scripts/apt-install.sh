@@ -26,4 +26,5 @@ sudo apt install -y \
     curl \
     dtrx \
     colordiff \
-    pinentry-gnome3
+    pinentry-gnome3 \
+    gcc-arm-none-eabi
