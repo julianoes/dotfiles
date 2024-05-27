@@ -276,9 +276,6 @@ bindsym $mod+Control+g exec qgroundcontrol
 bindsym $mod+Control+n exec nautilus
 bindsym $mod+Control+v exec gvim
 
-# wallpaper
-exec feh --bg-fill ~/Pictures/background.jpg
-
 # pomodoro disable comm workspace
 exec python ~/src/i3-gnome-pomodoro/pomodoro-client.py daemon 1 &
 
