@@ -29,6 +29,8 @@ source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
+export PATH="$HOME/software/gcc-arm-none-eabi-10.3-2021.10/bin:$PATH"
+
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 
 # Use Yubikey GPG for SSH
