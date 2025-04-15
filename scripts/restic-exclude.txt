@@ -1,0 +1,6 @@
+$HOME/*
+!$HOME/GoogleDrive
+!$HOME/Music
+!$HOME/src
+!$HOME/dotfiles
+*build*

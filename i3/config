@@ -11,7 +11,7 @@
 
 set $mod Mod4
 
-font pango:Inconsolata Medium 12
+font pango:Inconsolata Medium 20
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -181,7 +181,7 @@ bar {
   position bottom
   separator_symbol "|"
   #height 25
-  font pango:Inconsolata Medium 12
+  font pango:Inconsolata Medium 20
   colors {
     statusline         $white
     background         $transparent
@@ -281,6 +281,8 @@ exec python ~/src/i3-gnome-pomodoro/pomodoro-client.py daemon 1 &
 
 # monitor setup
 exec ~/Scripts/monitor_layout.sh
+
+exec /usr/bin/parcellite &
 
 # gnome logout
 #bindsym $mod+Shift+i exec gnome-session-quit --logout

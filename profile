@@ -35,3 +35,5 @@ gpgconf --launch gpg-agent
 
 # Added by Toolbox App
 export PATH="$PATH:/home/julianoes/.local/share/JetBrains/Toolbox/scripts"
+
+export CPM_SOURCE_CACHE=$HOME/.cache/CPM

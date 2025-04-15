@@ -29,10 +29,9 @@ source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-
 # Use Yubikey GPG for SSH
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpg-connect-agent updatestartuptty /bye > /dev/null
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -42,3 +41,12 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/home/julianoes/.local/share/fnm:$PATH"
 eval "`fnm env`"
 
+# Fix Gazebo scale
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export QT_SCREEN_SCALE_FACTORS=[1.0]
+
+# embedded GCC
+export PATH=/home/julianoes/Software/gcc-arm-none-eabi-10.3-2021.10/bin:$PATH
+#export PATH=/home/julianoes/Software/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin:$PATH
+# balena
+export PATH=$PATH:/home/julianoes/Software/balena-cli
