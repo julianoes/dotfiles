@@ -6,7 +6,16 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
 export GIT_SUBMODULES_ARE_EVIL=1 # For PX4
 export PX4_NO_FOLLOW_MODE=1
-export EDITOR=nvim
+export EDITOR=vim
+
+alias vim='vim_with_line'
+vim_with_line() {
+   if [[ $1 =~ ^(.*):([0-9]+)$ ]]; then
+       command vim "+$match[2]" "$match[1]"
+   else
+       command vim "$@"
+   fi
+}
 
 alias gdc='git diff --cached'
 alias gdt='git difftool -d'
@@ -18,8 +27,6 @@ alias fd="fdfind"
 alias fdi="fdfind --no-ignore"
 
 alias rgi="rg --no-ignore"
-
-alias vim="nvim"
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
