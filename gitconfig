@@ -16,10 +16,15 @@
 	tool = meld
 [core]
 	excludesfile = ~/.global_gitignore
-	editor = nvim
+	editor = vim
+	askpass = 
 [push]
 	default = simple
 [init]
 	defaultBranch = main
 [commit]
 	gpgsign = true
+[gpg]
+	program = gpg
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
