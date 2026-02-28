@@ -10,4 +10,6 @@ compile_commands.json
 cmake-build-*
 *.code-workspace
 install-*
-build-*
+build-*/
+**/.claude/*
+CLAUDE.md
