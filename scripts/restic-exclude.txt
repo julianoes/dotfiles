@@ -4,3 +4,7 @@ $HOME/*
 !$HOME/src
 !$HOME/dotfiles
 *build*
+*/.repo/*
+*.cache
+*.ccache
+*Planting*
