@@ -23,14 +23,6 @@
 [init]
 	defaultBranch = main
 [commit]
-	gpgsign = true
+	gpgsign = false
 [gpg]
 	program = gpg
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
-[sendemail]
-	smtpServer = smtp.gmail.com
-	smtpServerPort = 587
-	smtpEncryption = tls
-	smtpUser = julian@oes.ch
-	from = Julian Oes <julian@oes.ch>
