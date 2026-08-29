@@ -22,10 +22,11 @@ if [ ! -x "$TMUX_BIN" ] \
 fi
 
 # pinentry-curses aborts with "Screen or window too small" if it cannot fit
-# the prompt, and the card unlock prompt is several lines. Below that, a
-# popup helps nobody, so use the plain prompt.
+# the prompt; the card unlock prompt needs roughly 70x16. Sized just above
+# that rather than filling the screen, so the box is not mostly empty. On a
+# client too small to hold it, a popup helps nobody - use the plain prompt.
 size=$("$TMUX_BIN" display -p '#{client_width}x#{client_height}' 2>/dev/null)
-if [ "${size%x*}" -lt 60 ] 2>/dev/null || [ "${size#*x}" -lt 20 ] 2>/dev/null; then
+if [ "${size%x*}" -lt 72 ] 2>/dev/null || [ "${size#*x}" -lt 16 ] 2>/dev/null; then
     exec "$PINENTRY" "$@"
 fi
 
@@ -40,7 +41,7 @@ trap cleanup EXIT INT TERM
 # sentinel file, so that a SIGKILL (which runs no trap) still releases it,
 # and there is no race against cleanup removing the file first. The counter
 # is a backstop so a popup can never outlive the session indefinitely.
-"$TMUX_BIN" display-popup -d "$HOME" -w 90% -h 70% -E \
+"$TMUX_BIN" display-popup -d "$HOME" -w 76 -h 20 -E \
     "tty > '$tty_file'; n=0; while kill -0 $$ 2>/dev/null && [ \$n -lt 3000 ]; do sleep 0.1; n=\$((n+1)); done" \
     >/dev/null 2>&1 &
 
