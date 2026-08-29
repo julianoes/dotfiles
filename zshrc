@@ -37,9 +37,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Use Yubikey GPG for SSH
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpg-connect-agent updatestartuptty /bye > /dev/null
-export GPG_TTY=$(tty)
+[ -f "$HOME/.gnupg/gpg-agent-env.sh" ] && . "$HOME/.gnupg/gpg-agent-env.sh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

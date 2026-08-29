@@ -11,6 +11,7 @@
    ~/.config/nvim: config/nvim
    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
    ~/.gnupg/pinentry-tmux.sh: gnupg/pinentry-tmux.sh
+   ~/.gnupg/gpg-agent-env.sh: gnupg/gpg-agent-env.sh
    ~/.local/bin/untilfail.sh: local/bin/untilfail.sh
 
 - shell: 
