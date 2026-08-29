@@ -35,3 +35,7 @@ fi
 export PATH="$PATH:/home/julianoes/.local/share/JetBrains/Toolbox/scripts"
 
 export CPM_SOURCE_CACHE=$HOME/.cache/CPM
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/julianoes/.local/bin:$PATH"
