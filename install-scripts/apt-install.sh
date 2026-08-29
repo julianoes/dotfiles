@@ -5,8 +5,6 @@ set -e
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt purge -y pcscd
-
 sudo apt install -y \
     neovim \
     xclip \
@@ -27,4 +25,6 @@ sudo apt install -y \
     dtrx \
     colordiff \
     pinentry-gnome3 \
+    pcscd \
+    yubikey-manager \
     gcc-arm-none-eabi

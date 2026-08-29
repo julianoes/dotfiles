@@ -18,6 +18,10 @@
     quiet: false
     stdout: true
     stderr: true
+  - command: install-scripts/polkit-install.sh
+    quiet: false
+    stdout: true
+    stderr: true
   - command: install-scripts/nvim-install.sh
     quiet: false
     stdout: true

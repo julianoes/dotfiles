@@ -1,0 +1,14 @@
+// Allow access to the smart card daemon (YubiKey) from any session,
+// including remote SSH sessions.
+//
+// This replaces /etc/polkit-1/localauthority/50-local.d/org.debian.pcsc-lite.pkla:
+// polkit >= 121 dropped the .pkla local-authority backend, so that file is
+// silently ignored and the packaged defaults apply (allow_any = no), which
+// denies scdaemon whenever the session is not local+active.
+polkit.addRule(function(action, subject) {
+    if ((action.id == "org.debian.pcsc-lite.access_pcsc" ||
+         action.id == "org.debian.pcsc-lite.access_card") &&
+        subject.user == "julianoes") {
+        return polkit.Result.YES;
+    }
+});
