@@ -13,3 +13,6 @@ install-*
 build-*/
 **/.claude/*
 CLAUDE.md
+build/
+
+**/.claude/settings.local.json
