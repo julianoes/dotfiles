@@ -1,0 +1,5 @@
+# ~/.global_gitignore carries an "install-*" pattern, which also matches
+# install-scripts/ and quietly hides every new file added there behind
+# "git add -f". A repo-level .gitignore outranks core.excludesFile, so
+# re-include it here.
+!install-scripts/
