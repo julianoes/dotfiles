@@ -767,31 +767,46 @@ require("lazy").setup({
 		end,
 	},
 	{ -- Highlight, edit, and navigate code
+		-- Uses the `main` branch (rewrite for Neovim 0.12+). Needs `tree-sitter` CLI and a C compiler.
 		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		lazy = false,
 		build = ":TSUpdate",
-		opts = {
-			ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
-			-- Autoinstall languages that are not installed
-			auto_install = true,
-			highlight = {
-				enable = true,
-			},
-			indent = { enable = true },
-		},
-		config = function(_, opts)
-			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+		config = function()
+			local ts = require("nvim-treesitter")
+			ts.install({ "bash", "c", "html", "lua", "luadoc", "markdown", "markdown_inline", "vim", "vimdoc" })
 
-			-- Prefer git instead of curl in order to improve connectivity in some environments
-			require("nvim-treesitter.install").prefer_git = true
-			---@diagnostic disable-next-line: missing-fields
-			require("nvim-treesitter.configs").setup(opts)
+			local available = {}
+			for _, lang in ipairs(ts.get_available()) do
+				available[lang] = true
+			end
 
-			-- There are additional nvim-treesitter modules that you can use to interact
-			-- with nvim-treesitter. You should go explore a few and see what interests you:
-			--
-			--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-			--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+			local function enable(buf)
+				if not pcall(vim.treesitter.start, buf) then
+					return
+				end
+				vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end
+
+			-- Enable highlighting + indent, and auto-install missing parsers
+			vim.api.nvim_create_autocmd("FileType", {
+				group = vim.api.nvim_create_augroup("treesitter-setup", { clear = true }),
+				callback = function(args)
+					local lang = vim.treesitter.language.get_lang(args.match)
+					if not lang or not available[lang] then
+						return
+					end
+					if vim.list_contains(ts.get_installed(), lang) then
+						enable(args.buf)
+					else
+						ts.install(lang):await(vim.schedule_wrap(function(err)
+							if not err and vim.api.nvim_buf_is_valid(args.buf) then
+								enable(args.buf)
+							end
+						end))
+					end
+				end,
+			})
 		end,
 	},
 
