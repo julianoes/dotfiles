@@ -128,7 +128,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
 	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 end ---@diagnostic disable-next-line: undefined-field
@@ -228,7 +228,6 @@ require("lazy").setup({
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
-		branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -330,21 +329,29 @@ require("lazy").setup({
 		end,
 	},
 
+	{ -- Configures Lua LSP for your Neovim config, runtime and plugins
+		-- used for completion, annotations and signatures of Neovim apis
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				-- Load luvit types when the `vim.uv` word is found
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
+	},
+
 	{ -- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for Neovim
-			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
-			"williamboman/mason-lspconfig.nvim",
+			{ "mason-org/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
+			"mason-org/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 			-- Useful status updates for LSP.
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{ "j-hui/fidget.nvim", opts = {} },
-
-			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
-			-- used for completion, annotations and signatures of Neovim apis
-			{ "folke/neodev.nvim", opts = {} },
 		},
 		config = function()
 			-- Brief aside: **What is LSP?**
@@ -537,18 +544,16 @@ require("lazy").setup({
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-			require("mason-lspconfig").setup({
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						-- This handles overriding only values explicitly passed
-						-- by the server configuration above. Useful when disabling
-						-- certain features of an LSP (for example, turning off formatting for tsserver)
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
-			})
+			-- Default capabilities for all servers, then per-server overrides from above.
+			-- nvim-lspconfig provides the base configs; these get merged on top.
+			vim.lsp.config("*", { capabilities = capabilities })
+			for server_name, server in pairs(servers) do
+				vim.lsp.config(server_name, server)
+			end
+
+			-- Enables (vim.lsp.enable) every server installed via Mason.
+			-- stylua is only used as a formatter (via conform), not as an LSP.
+			require("mason-lspconfig").setup({ automatic_enable = { exclude = { "stylua" } } })
 		end,
 	},
 
@@ -559,7 +564,7 @@ require("lazy").setup({
 			{
 				"<leader>f",
 				function()
-					require("conform").format({ async = true, lsp_fallback = true })
+					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
 				mode = "",
 				desc = "[F]ormat buffer",
@@ -574,7 +579,7 @@ require("lazy").setup({
 				local disable_filetypes = { c = true, cpp = true, proto = true }
 				return {
 					timeout_ms = 500,
-					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+					lsp_format = disable_filetypes[vim.bo[bufnr].filetype] and "never" or "fallback",
 				}
 			end,
 			formatters_by_ft = {
@@ -692,6 +697,7 @@ require("lazy").setup({
 					--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 				}),
 				sources = {
+					{ name = "lazydev", group_index = 0 }, -- set group index to 0 to skip loading LuaLS completions
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
@@ -833,6 +839,8 @@ require("lazy").setup({
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	-- { import = 'custom.plugins' },
 }, {
+	-- No plugins need luarocks
+	rocks = { enabled = false },
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
 		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
